@@ -1,0 +1,365 @@
+<html><head><base href="." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TGS - Đọc Chapter</title>
+<style>
+:root {
+  --primary: #2196f3;
+  --dark: #1a1a1a;
+  --light: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--dark);
+  color: var(--light);
+}
+
+.navbar {
+  background: #000;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.chapter-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background: #222;
+  position: sticky;
+  top: 60px;
+  z-index: 90;
+}
+
+.chapter-select {
+  padding: 0.5rem;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.nav-btn {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background: var(--primary);
+}
+
+.reading-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.page-image {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.comments-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #222;
+  border-radius: 8px;
+}
+
+.like-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.like-btn.active {
+  color: #e74c3c;
+}
+
+.like-btn:hover {
+  transform: scale(1.1);
+}
+
+.like-count {
+  color: #888;
+}
+
+.comment-form {
+  padding: 1rem 0;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 0.8rem;
+  background: #333;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comments-list {
+  margin-top: 1rem;
+}
+
+.comment {
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.comment-author {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.comment-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.comment-content {
+  color: #ddd;
+  line-height: 1.4;
+}
+
+.settings-panel {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.setting-btn {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.setting-btn:hover {
+  background: var(--primary);
+}
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">TGS</div>
+    <div class="nav-links">
+      <button class="nav-btn">Về trang chủ</button>
+    </div>
+  </nav>
+
+  <div class="chapter-controls">
+    <button class="nav-btn">← Chapter trước</button>
+    <select class="chapter-select">
+      <option>Chapter 1</option>
+      <option selected>Chapter 2</option>
+      <option>Chapter 3</option>
+      <option>Chapter 4</option>
+    </select>
+    <button class="nav-btn">Chapter sau →</button>
+  </div>
+
+  <div class="reading-container">
+    <div class="manga-title">
+      <h1>Nangoku! Yuta girl - Chapter 2</h1>
+    </div>
+    <img class="page-image" src="c:\Users\chekh\Downloads\image\1.png" width="800" height="1200">
+    <img class="page-image" src="c:\Users\chekh\Downloads\image\2.png" width="800" height="1200">
+    <img class="page-image" src="c:\Users\chekh\Downloads\image\3.png" width="800" height="1200">
+    <img class="page-image" src="c:\Users\chekh\Downloads\image\4.png" width="800" height="1200">
+  </div>
+
+  <div class="comments-section">
+    <div class="like-section">
+      <button class="like-btn">❤</button>
+      <span class="like-count">1 likes</span>
+    </div>
+    
+    <div class="comment-form">
+      <textarea class="comment-input" placeholder="Viết bình luận của bạn..."></textarea>
+      <button class="submit-btn">Gửi bình luận</button>
+    </div>
+
+    <div class="comments-list">
+      <div class="comment">
+        <div class="comment-header">
+          <span class="comment-author">MangaLover123</span>
+          <span class="comment-date">2 giờ trước</span>
+        </div>
+        <p class="comment-content">Chapter này hay quá! Không thể đợi chapter sau được 😍</p>
+      </div>
+
+      <div class="comment">
+        <div class="comment-header">
+          <span class="comment-author">OtakuKing</span>
+          <span class="comment-date">5 giờ trước</span>
+        </div>
+        <p class="comment-content">Tình tiết truyện càng ngày càng hấp dẫn!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-panel">
+    <button class="setting-btn">🌓 Tối/Sáng</button>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const chapterSelect = document.querySelector('.chapter-select');
+  const prevButton = document.querySelector('.nav-btn:first-child');
+  const nextButton = document.querySelector('.nav-btn:last-child');
+  const homeButton = document.querySelector('.nav-links .nav-btn');
+  const settingButtons = document.querySelectorAll('.setting-btn');
+  
+  // Chapter navigation
+  chapterSelect.addEventListener('change', (e) => {
+    console.log('Changed to:', e.target.value);
+  });
+
+  prevButton.addEventListener('click', () => {
+    const currentIndex = chapterSelect.selectedIndex;
+    if (currentIndex > 0) {
+      chapterSelect.selectedIndex = currentIndex - 1;
+      chapterSelect.dispatchEvent(new Event('change'));
+    }
+  });
+
+  nextButton.addEventListener('click', () => {
+    const currentIndex = chapterSelect.selectedIndex;
+    if (currentIndex < chapterSelect.options.length - 1) {
+      chapterSelect.selectedIndex = currentIndex + 1;
+      chapterSelect.dispatchEvent(new Event('change'));
+    }
+  });
+
+  // Home button
+  homeButton.addEventListener('click', () => {
+    window.location.href = 'index.html';
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevButton.click();
+    } else if (e.key === 'ArrowRight') {
+      nextButton.click();
+    }
+  });
+
+  // Settings functionality
+  let isDarkMode = true;
+
+  settingButtons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      switch(index) {
+        case 0: // Dark/Light mode
+          isDarkMode = !isDarkMode;
+          document.body.style.background = isDarkMode ? 'var(--dark)' : 'var(--light)';
+          document.body.style.color = isDarkMode ? 'var(--light)' : 'var(--dark)';
+          break;
+      }
+    });
+  });
+
+  // Like functionality
+  const likeBtn = document.querySelector('.like-btn');
+  const likeCount = document.querySelector('.like-count');
+  let isLiked = false;
+  let likes = 1200;
+
+  likeBtn.addEventListener('click', () => {
+    isLiked = !isLiked;
+    likes += isLiked ? 1 : -1;
+    likeBtn.classList.toggle('active');
+    likeCount.textContent = `${(likes/1000).toFixed(1)}k likes`;
+  });
+
+  // Comment functionality
+  const commentForm = document.querySelector('.comment-form');
+  const commentInput = document.querySelector('.comment-input');
+  const commentsList = document.querySelector('.comments-list');
+
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (commentInput.value.trim()) {
+      const newComment = document.createElement('div');
+      newComment.className = 'comment';
+      newComment.innerHTML = `
+        <div class="comment-header">
+          <span class="comment-author">User</span>
+          <span class="comment-date">Vừa xong</span>
+        </div>
+        <p class="comment-content">${commentInput.value}</p>
+      `;
+      commentsList.insertBefore(newComment, commentsList.firstChild);
+      commentInput.value = '';
+    }
+  });
+
+  const submitBtn = document.querySelector('.submit-btn');
+  submitBtn.addEventListener('click', () => {
+    commentForm.dispatchEvent(new Event('submit'));
+  });
+});
+</script>
+</body></html>

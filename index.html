@@ -1,0 +1,256 @@
+<html><head><base href="." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tanned Girl Supremacy</title>
+<style>
+:root {
+  --primary: #f39c21;
+  --dark: #1a1a1a;
+  --light: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--dark);
+  color: var(--light);
+}
+
+.navbar {
+  background: #000;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar {
+  flex: 0 1 400px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  background: #333;
+  color: white;
+}
+
+.manga-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.manga-card {
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.manga-card:hover {
+  transform: translateY(-5px);
+}
+
+.manga-cover {
+  position: relative;
+  padding-top: 140%;
+  background: #333;
+}
+
+.manga-info {
+  padding: 0.5rem;
+}
+
+.manga-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.manga-chapter {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.filters {
+  padding: 1rem;
+  background: #222;
+  margin: 1rem;
+  border-radius: 8px;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filter-btn:hover {
+  background: var(--primary);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.page-btn {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background: var(--primary);
+}
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">TGS</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Tìm truyện...">
+    </div>
+    <div class="nav-links">
+      <button class="filter-btn">Đăng nhập/Đăng ký</button>
+    </div>
+  </nav>
+
+  <div class="filters">
+    <div class="filter-group">
+      <button class="filter-btn">Tất cả</button>
+      <button class="filter-btn">Rom-com</button>
+      <button class="filter-btn">Drama</button>
+      <button class="filter-btn">Hài lãng mạn</button>
+      <button class="filter-btn">SoF</button>
+      <button class="filter-btn">Shounen</button>
+      <button class="filter-btn">Shoujo</button>
+    </div>
+  </div>
+
+  <div class="manga-grid">
+    <!-- Manga cards will be dynamically generated -->
+  </div>
+
+  <div class="pagination">
+    <button class="page-btn">1</button>
+
+  </div>
+
+<script>
+// Sample manga data
+const mangaData = [
+  {
+    title: "Nangoku! Yuta girl",
+    chapter: "Chapter 18",
+    cover: "nangoku.jpg"
+
+  },
+  {
+    title: "Thiên thần ăn bám",
+    chapter: "Chapter 8",
+    cover: "c:\Users\chekh\Downloads\image\tenshi.jpg"
+  },
+  {
+    title: "Kurosaki",
+    chapter: "Chapter 4",
+    scr: "c:\Users\chekh\Downloads\image\kurosaki.jpg"
+  }
+
+];
+
+function createMangaCard(manga) {
+  return `
+    <div class="manga-card">
+      <div class="manga-cover">
+        <img alt="Manga cover for ${manga.title}" src="nangoku.jpg" width="12" height="18">
+      </div>
+      <div class="manga-info">
+        <h3 class="manga-title">${manga.title}</h3>
+        <div class="manga-chapter">${manga.chapter}</div>
+      </div>
+    </div>
+  `;
+}
+
+function populateMangaGrid() {
+  const grid = document.querySelector('.manga-grid');
+  // Create 5 manga cards for demo purposes
+  for (let i = 0; i < 5; i++) {
+    const randomManga = mangaData[Math.floor(Math.random() * mangaData.length)];
+    grid.innerHTML += createMangaCard(randomManga);
+  }
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', () => {
+  populateMangaGrid();
+
+  // Add search functionality
+  const searchInput = document.querySelector('.search-bar input');
+  searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const mangaCards = document.querySelectorAll('.manga-card');
+    
+    mangaCards.forEach(card => {
+      const title = card.querySelector('.manga-title').textContent.toLowerCase();
+      if (title.includes(searchTerm)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+
+  // Add filter functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Add actual filtering logic here
+    });
+  });
+
+  // Add pagination functionality
+  const pageButtons = document.querySelectorAll('.page-btn');
+  pageButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pageButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Add actual pagination logic here
+    });
+  });
+});
+</script>
+</body></html>

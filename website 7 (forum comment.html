@@ -1,0 +1,283 @@
+<html><head><base href="." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TGS - Forum Post</title>
+<style>
+:root {
+  --primary: #2196f3;
+  --dark: #1a1a1a;
+  --light: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--dark);
+  color: var(--light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background: #000;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.forum-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.forum-section {
+  background: #222;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.section-header {
+  background: #333;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.post-meta {
+  display: flex;
+  gap: 1rem;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.comments-section {
+  background: #222;
+  border-radius: 8px;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.comment-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.comment-input {
+  flex: 1;
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 1rem;
+  color: var(--light);
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-comment {
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.comment {
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.comment-author {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.comment-time {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.comment-content {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.action-btn:hover {
+  color: var(--primary);
+}
+
+.action-btn.liked {
+  color: #e91e63;
+}
+
+.replies {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  border-left: 2px solid #333;
+  padding-left: 1rem;
+}
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">TGS</div>
+  </nav>
+
+  <div class="forum-container">
+    <div class="forum-section">
+      <div class="section-header">
+        <h2 class="section-title">Top manga hay nhất tháng 6/2023</h2>
+      </div>
+      <div class="post-meta" style="padding: 1rem;">
+        <span>Đăng bởi: TruongGiang</span>
+        <span>2 giờ trước</span>
+      </div>
+      <div style="padding: 1rem;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+    </div>
+
+    <div class="comments-section">
+      <h3>Bình luận (3)</h3>
+      <form class="comment-form">
+        <textarea class="comment-input" placeholder="Viết bình luận của bạn..."></textarea>
+        <button type="submit" class="submit-comment">Gửi</button>
+      </form>
+
+      <div class="comment-list">
+        <div class="comment">
+          <div class="comment-header">
+            <span class="comment-author">HoangLong</span>
+            <span class="comment-time">1 giờ trước</span>
+          </div>
+          <div class="comment-content">
+            Hoàn toàn đồng ý với list của bạn! Chainsaw Man xứng đáng top 1.
+          </div>
+          <div class="comment-actions">
+            <button class="action-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z"/>
+              </svg>
+              <span>24</span>
+            </button>
+            <button class="action-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M21,6h-2v9H6v2c0,0.55,0.45,1,1,1h11l4,4V7C22,6.45,21.55,6,21,6z M17,12V3c0-0.55-0.45-1-1-1H3 C2.45,2,2,2.45,2,3v14l4-4h10C16.55,13,17,12.55,17,12z"/>
+              </svg>
+              <span>Trả lời</span>
+            </button>
+          </div>
+          <div class="replies">
+            <div class="comment">
+              <div class="comment-header">
+                <span class="comment-author">ThanhTung</span>
+                <span class="comment-time">30 phút trước</span>
+              </div>
+              <div class="comment-content">
+                Đúng vậy, phần art của Chainsaw Man quá đỉnh!
+              </div>
+              <div class="comment-actions">
+                <button class="action-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z"/>
+                  </svg>
+                  <span>12</span>
+                </button>
+                <button class="action-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M21,6h-2v9H6v2c0,0.55,0.45,1,1,1h11l4,4V7C22,6.45,21.55,6,21,6z M17,12V3c0-0.55-0.45-1-1-1H3 C2.45,2,2,2.45,2,3v14l4-4h10C16.55,13,17,12.55,17,12z"/>
+                  </svg>
+                  <span>Trả lời</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const commentForm = document.querySelector('.comment-form');
+  const actionBtns = document.querySelectorAll('.action-btn');
+
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = commentForm.querySelector('.comment-input');
+    if (input.value.trim()) {
+      input.value = '';
+    }
+  });
+
+  actionBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const isLikeBtn = e.currentTarget.querySelector('svg path').getAttribute('d').includes('heart');
+      
+      if (isLikeBtn) {
+        const count = e.currentTarget.querySelector('span');
+        const currentValue = parseInt(count.textContent);
+        count.textContent = currentValue + 1;
+        e.currentTarget.classList.toggle('liked');
+      } else {
+        const commentForm = e.currentTarget.closest('.comment').querySelector('.comment-form');
+        if (commentForm) {
+          commentForm.style.display = commentForm.style.display === 'none' ? 'flex' : 'none';
+        }
+      }
+    });
+  });
+});
+</script>
+</body></html>

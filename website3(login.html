@@ -1,0 +1,234 @@
+<html><head><base href="." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TGS - Đăng nhập</title>
+<style>
+:root {
+  --primary: #2196f3;
+  --dark: #1a1a1a;
+  --light: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--dark);
+  color: var(--light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background: #000;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #222;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ddd;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: white;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #1976d2;
+}
+
+.auth-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.auth-links a {
+  color: var(--primary);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.social-login {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.google-btn {
+  background: #fff;
+  color: #333;
+}
+
+.facebook-btn {
+  background: #1877f2;
+  color: white;
+}
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">TGS</div>
+  </nav>
+
+  <div class="login-container">
+    <h2 class="form-title">Đăng nhập</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label">Email/Tên đăng nhập</label>
+        <input type="text" class="form-input" required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Mật khẩu</label>
+        <input type="password" class="form-input" required>
+      </div>
+
+      <div class="remember-me">
+        <input type="checkbox" id="remember">
+        <label for="remember">Ghi nhớ đăng nhập</label>
+      </div>
+
+      <button type="submit" class="submit-btn">Đăng nhập</button>
+
+      <div class="auth-links">
+        <a href="https://example.com/forgot-password">Quên mật khẩu?</a>
+        <span>|</span>
+        <a href="https://example.com/register">Đăng ký</a>
+      </div>
+
+      <div class="social-login">
+        <button type="button" class="social-btn google-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+          </svg>
+          Đăng nhập với Google
+        </button>
+        <button type="button" class="social-btn facebook-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+          </svg>
+          Đăng nhập với Facebook
+        </button>
+      </div>
+    </form>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('login-form');
+  const emailInput = document.querySelector('input[type="text"]');
+  const passwordInput = document.querySelector('input[type="password"]');
+  const rememberCheckbox = document.getElementById('remember');
+
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Simple validation
+    if (!emailInput.value.trim() || !passwordInput.value.trim()) {
+      alert('Vui lòng điền đầy đủ thông tin!');
+      return;
+    }
+
+    // Mock login logic
+    console.log('Login attempted with:', {
+      email: emailInput.value,
+      password: passwordInput.value,
+      remember: rememberCheckbox.checked
+    });
+
+    // Redirect after successful login
+    window.location.href = 'index.html';
+  });
+
+  // Social login handlers
+  document.querySelector('.google-btn').addEventListener('click', () => {
+    console.log('Google login attempted');
+  });
+
+  document.querySelector('.facebook-btn').addEventListener('click', () => {
+    console.log('Facebook login attempted');
+  });
+});
+</script>
+</body></html>
